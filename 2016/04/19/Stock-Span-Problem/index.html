@@ -13,7 +13,7 @@
 <meta property="og:description" content="We are given a list of prices of a stock for N number of days. We need to find the span for each day. Span is defined as number of consecutive days before the given day where the price of stock was l">
 <meta property="og:image" content="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/StockSpanProblem.png =250x0">
 <meta property="og:image" content="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/StockSpanProblem2.png =250x0">
-<meta property="og:updated_time" content="2016-04-19T15:44:17.000Z">
+<meta property="og:updated_time" content="2016-04-22T09:46:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stock-Span-Problem">
 <meta name="twitter:description" content="We are given a list of prices of a stock for N number of days. We need to find the span for each day. Span is defined as number of consecutive days before the given day where the price of stock was l">
@@ -100,7 +100,7 @@
 </blockquote>
 <hr>
 <p><strong>第一种思路 ： <em>遍历price，对于每一个 price ，向前计算比当前 price 低的天数，直到遇见比当前 price 高的 price为止。</em> </strong><br><code>然而，天使与魔鬼总是同时存在的，虽然算法容易想到，同时带来的却是较低的可扩展性(时间复杂度高).</code><br>算法的实现核心是两层循环，这也带来了O(N^2)的时间复杂度.</p>
-<p>  <img src="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/StockSpanProblem.png =250x0" alt=""></p>
+<p>  <img src="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/StockSpanProblem.png =250x0" alt="n^2"></p>
 <pre><code>package com.elephant;
 
 import static com.elephant.util.Print.print;
@@ -145,7 +145,7 @@ public class StockSpan1 {
 </li>
 </ol>
 <p>这个算法的时间复杂度分析较难.下面我试着按照我的理解分析一下,如果仅凭直观的感觉当你看到两层循环时,很容易理解成O(n^2)时间复杂度.<br>造成你觉得可能是O(n^2)时间复杂度的唯一可能是你觉得<code>stack.pop();</code>执行了 O(n^2)次.实际上每个price只可能进栈一次,而且出栈后便不会再进栈.所以<code>stack.pop();</code>最多执行了N次.</p>
-<p><img src="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/StockSpanProblem2.png =250x0" alt=""></p>
+<p><img src="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/StockSpanProblem2.png =250x0" alt="n"></p>
 <pre><code>package com.elephant;
 
 import static com.elephant.util.Print.*;
